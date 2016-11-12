@@ -1,0 +1,121 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+h3{
+    font-family: monospace;
+    font-size: 30px;
+    color: #0066CC;
+    padding: 5px;
+}
+header,nav,section,aside,footer,article,hgroup{
+    display: block;
+}
+body{
+    text-align: center;
+}
+.container-fluid{
+    padding: 5px auto;
+    background-color: rgb(51,51,255);
+}
+#wrapper{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0px;
+    border: 1px solid black;
+    background-color: #FFF;
+}
+#header{
+    width: 100%;
+    height: 150px;
+    background-image: url("../image/header.gif") ;
+    
+    border-radius: 5px;
+}
+#nav{
+    margin:1px 0px;
+}
+#footer{
+    height: 50px;
+    margin:5px;
+    clear: both;
+    color: #FFF;
+    background: #1b6d85;
+    border-radius: 10px;
+}
+#errorBox{
+    color: red;
+}
+#message{
+    color: red;
+    margin: 10px auto;
+}
+/*Alignment*/
+.align-center{
+    text-align: center;
+}
+.align-left{
+    text-align: left;
+}
+.align-right{
+    text-align: right;
+}
+/*Color*/
+.red{
+    background-color: #c7ddef;
+}
+.red-color{
+    color: red;
+}
+#bordered-table th,#bordered-table td{
+    padding: 5px;
+}
+
+/*Pagination Styling*/
+
+#paging div{
+    display: inline-block;
+}
+#pagination {
+    padding: 3px;
+    margin: 3px;
+    text-align:center;
+}
+	
+#pagination a {
+    padding: 2px 5px 2px 5px;
+    margin: 2px;
+    border: 1px solid #AAAADD;
+
+    text-decoration: none; /* no underline */
+    color: #000099;
+}
+#pagination a:hover{
+    border: 1px solid #000099;
+    color: #000;
+}
+#pagination span.current {
+        padding: 2px 5px 2px 5px;
+        margin: 2px;
+        border: 1px solid #000099;
+
+        font-weight: bold;
+        background-color: #000099;
+        color: #FFF;
+}
+#pagination span.disabled {
+        padding: 2px 5px 2px 5px;
+        margin: 2px;
+        border: 1px solid #EEE;
+
+        color: #DDD;
+}
+.link{
+    text-decoration: none;
+    color: #1b6d85;
+}
+.link:hover{
+    text-decoration: none;
+    color: #0099FF;
+}
+
