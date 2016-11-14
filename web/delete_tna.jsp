@@ -154,7 +154,8 @@
                                         <td>${requestScope.poObj.orderDate}</td>
                                     </tr>
                                 </table>
-                                
+                                    
+                                <a class="btn btn-primary" href="delete_tna?redirect=five&poRef=${requestScope.poObj.poRef}">Save as Pdf</a>
                                 <a class="btn btn-danger" href="delete_tna?redirect=four&poRef=${requestScope.poObj.poRef}" onclick="return confirmDelete()">deleteTNA</a>
          
                             </c:if>    

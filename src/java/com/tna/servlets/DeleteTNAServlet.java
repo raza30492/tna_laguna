@@ -5,11 +5,22 @@
  */
 package com.tna.servlets;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.tna.dto.Activity;
 import com.tna.dto.Pair;
 import com.tna.dto.PurchaseOrder;
 import com.tna.dto.User;
+import com.tna.services.ActivityService;
 import com.tna.services.PurchaseOrderService;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,6 +54,7 @@ public class DeleteTNAServlet extends HttpServlet {
         }
         
         PurchaseOrderService poService = new PurchaseOrderService();
+        ActivityService activityService = new ActivityService();
         
         String redirect = request.getParameter("redirect");
         
@@ -120,8 +132,80 @@ public class DeleteTNAServlet extends HttpServlet {
             request.setAttribute("poRefWise", "NOT NULL");
             dispatcher = request.getRequestDispatcher("delete_tna.jsp");
         }
+        //Save as Pdf
+        if(redirect.equals("five")){
+            String poRef = request.getParameter("poRef");
+            PurchaseOrder poObj = poService.getPurchaseOrder(poRef);
+            List<Activity> activityList = activityService.getActivitiesByPORef(poRef);
+            
+            try{
+                Document document = new Document();
+                PdfWriter.getInstance(document, response.getOutputStream());
+                response.setHeader("Content-Type", "application/pdf");
+                document.open();
+                
+                PdfPTable table1 = new PdfPTable(4);
+                table1.setWidthPercentage(80);
+                float[] columnWidth1 = {2f, 3f, 2f, 3f};
+                table1.setWidths(columnWidth1);
+                
+                table1.addCell(getCell("Buyer", 12, Font.BOLD));
+                table1.addCell(getCell(poObj.getBuyerName(), 12, Font.NORMAL));
+                table1.addCell(getCell("PO Ref No.", 12, Font.BOLD));
+                table1.addCell(getCell(poObj.getPoRef(), 12, Font.NORMAL));
+                table1.addCell(getCell("Style", 12, Font.BOLD));
+                table1.addCell(getCell(poObj.getStyle(), 12, Font.NORMAL));
+                table1.addCell(getCell("Season", 12, Font.BOLD));
+                table1.addCell(getCell(poObj.getSeason(), 12, Font.NORMAL));
+                table1.addCell(getCell("Quantity", 12, Font.BOLD));
+                table1.addCell(getCell(String.valueOf(poObj.getQuantity()), 12, Font.NORMAL));
+                table1.addCell(getCell("Order Date", 12, Font.BOLD));
+                table1.addCell(getCell(poObj.getOrderDate(), 12, Font.NORMAL));
+                
+                
+                PdfPTable table2 = new PdfPTable(5);
+                table2.setWidthPercentage(100);
+                float[] columnWidth2 = {4f, 2f, 2.5f, 2.5f, 4f};
+                table2.setWidths(columnWidth2);
+                
+                table2.addCell(getCell("Activity", 12, Font.BOLD));
+                table2.addCell(getCell("Timeline", 12, Font.BOLD));
+                table2.addCell(getCell("Due Date", 12, Font.BOLD));
+                table2.addCell(getCell("Completion Date", 12, Font.BOLD));
+                table2.addCell(getCell("Remarks", 12, Font.BOLD));
+                
+                Iterator<Activity> itr = activityList.iterator();
+                Activity activity;
+                while(itr.hasNext()){
+                    activity = itr.next();
+                    table2.addCell(getCell(activity.getActivityName(), 12, Font.NORMAL));
+                    table2.addCell(getCell(activity.getTimeline(), 12, Font.NORMAL));
+                    table2.addCell(getCell(activity.getDueDate(), 12, Font.NORMAL));
+                    table2.addCell(getCell(activity.getCompletionDate(), 12, Font.NORMAL));
+                    table2.addCell(getCell(activity.getRemarks(), 12, Font.NORMAL));
+                }
+                
+                document.add(table1);
+                document.add(new Paragraph("\n\n"));
+                document.add(table2);
+                document.close();
+                return;
+                
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
         
         dispatcher.forward(request, response);
+    }
+    
+    private PdfPCell getCell(String text, float size, int style){
+        Font font = new Font(Font.FontFamily.TIMES_ROMAN, size, style);
+        PdfPCell cell = new PdfPCell(new Phrase(text, font));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setPaddingTop(5);
+        cell.setPaddingBottom(8);
+        return cell;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
