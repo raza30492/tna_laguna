@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class DBase {
     
     static    String driver = "com.mysql.jdbc.Driver";
-    static    String url = "jdbc:mysql://localhost:3306/tna";
+    static    String url = "jdbc:mysql://localhost:3306/tna?createDatabaseIfNotExists=true";
     static    String username = "root";
     static    String password = "zahid";
     
