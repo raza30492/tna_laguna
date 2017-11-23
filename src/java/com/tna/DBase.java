@@ -8,10 +8,10 @@ public class DBase {
     static    String driver = "com.mysql.jdbc.Driver";
     static    String url = "jdbc:mysql://localhost:3306/tna?createDatabaseIfNotExists=true";
     static    String username = "root";
-    static    String password = "zahid";
+    //static    String password = "zahid";
     
     
-    //static    String password = "laguna_tna";
+    static    String password = "laguna_tna";
 /*
     static    String driver = "com.mysql.jdbc.Driver";
     static    String url = "jdbc:mysql://localhost:3306/raza_tna";

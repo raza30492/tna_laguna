@@ -1,6 +1,6 @@
 function genTNA(){
     var dateRegex = /[0-3]{1}[0-9]{1}\/[0-1]{1}[0-9]{1}\/[1-9]{1}[0-9]{3}/;
-    var regex = /[0-9]/;
+    var regex = /^[0-9]$/;
     var and_regex = /[&]/;
     var plus_regex = /[+]/;
     

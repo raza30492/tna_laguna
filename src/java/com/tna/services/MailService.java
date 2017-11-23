@@ -32,13 +32,7 @@ public class MailService {
         
         String host = "mail.laguna-clothing.com";
         String user = "itsupport@laguna-clothing.com";
-        String password = "***S***@522";
-        /*
-        
-        String host = "mail.zahidraza.in";
-        String user = "noreply@zahidraza.in";
-        String password = "Munnu@90067";
-        */
+        String password = "Rit123ab*";
 
         Boolean status = false;
         
@@ -46,6 +40,9 @@ public class MailService {
         
         prop.put("mail.smtp.host", host);
         prop.put("mail.smtp.auth",true);
+        prop.put("mail.smtp.ssl.trust", host);
+        prop.put("mail.smtp.port", "587"); //TLS Port
+        prop.put("mail.smtp.starttls.enable", "true"); //enable 
         
         Session session = Session.getInstance(prop,  
                                 new javax.mail.Authenticator() {  
@@ -77,7 +74,7 @@ public class MailService {
         
         String host = "mail.laguna-clothing.com";
         String user = "itsupport@laguna-clothing.com";
-        String password = "***S***@522";
+        String password = "Rit123ab*";
         
         String to = "zahid7292@gmail.com";
         String sub = "Server Log of TNA";
@@ -94,6 +91,9 @@ public class MailService {
         
         prop.put("mail.smtp.host", host);
         prop.put("mail.smtp.auth",true);
+        prop.put("mail.smtp.ssl.trust", host);
+        prop.put("mail.smtp.port", "587"); //TLS Port
+        prop.put("mail.smtp.starttls.enable", "true"); //enable 
         
         Session session = Session.getInstance(prop,  
                                 new javax.mail.Authenticator() {  
