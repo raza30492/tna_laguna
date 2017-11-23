@@ -89,7 +89,7 @@ function searchTNA(){
 function editTNA(){
     
     var dateRegex = /[0-3]{1}[0-9]{1}\/[0-1]{1}[0-9]{1}\/[1-9]{1}[0-9]{3}/;
-    var regex = /[0-9]/;
+    var regex = /^[0-9]$/;
     var str_regex = /[&]/;
     
     var poRef = document.editform.poRef2.value;

@@ -35,7 +35,7 @@ function updateBuyer(){
     return addBuyer();
 }
 function addBuyer(){
-    var regex = /[0-9]/;
+    var regex = /^[0-9]$/;
     var str_regex = /[&]/;
     
     var buyer = document.form.buyer.value;
