@@ -160,7 +160,7 @@
                                             </tr>
                                             <tr>
                                                 <td><label>Quantity</label></td>
-                                                <td><input type="text" class="form-control" name="quantity" value="${requestScope.poObj.quantity}" /></td>
+                                                <td><input type="number" min="0" class="form-control" name="quantity" value="${requestScope.poObj.quantity}" /></td>
                                                 <td><label>Order Date</label></td>
                                                 <td><input type="text" class="form-control" name="orderDate" placeholder="${requestScope.poObj.orderDate}"  /></td>
                                             </tr>

@@ -1,6 +1,5 @@
 function Login(){
     //var emailRegex = /^[A-Za-z0-9._]*\@[A-Za-z]*\.[A-Za-z]{2,5}$/;
-    var eidRegex = /^[0-9]$/;
     var eid = document.form.eid.value;
     var password = document.form.pass.value;
     var role = document.form.role.value;

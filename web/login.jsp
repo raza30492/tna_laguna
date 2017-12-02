@@ -41,7 +41,7 @@
                         <table id="login_table">                       
                             <tr>
                                 <td width=120><label id="log_label">Employee ID</label></td>
-                                <td><input type="text" value="" name="eid" placeholder="Enter Employee ID"></td>
+                                <td><input type="number" min="0" value="" name="eid" placeholder="Enter Employee ID"></td>
                             </tr>
                             <tr>
                                 <td ><label id="log_label">Password</label></td>

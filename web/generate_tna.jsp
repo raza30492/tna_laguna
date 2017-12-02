@@ -60,7 +60,7 @@
                             </tr>
                             <tr>
                                 <td><label>Quantity</label></td>
-                                <td><input type="text" class="form-control" name="quantity" value="" placeholder="Quantity" /></td>
+                                <td><input type="number" min="0" class="form-control" name="quantity" value="" placeholder="Quantity" /></td>
                                 <td><label>Order Date</label></td>
                                 <td><input type="text" class="form-control" name="orderDate" value="" placeholder="[DD/MM/YYYY]" /></td>
                             </tr>

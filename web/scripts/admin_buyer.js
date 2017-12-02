@@ -35,7 +35,6 @@ function updateBuyer(){
     return addBuyer();
 }
 function addBuyer(){
-    var regex = /^[0-9]$/;
     var str_regex = /[&]/;
     
     var buyer = document.form.buyer.value;
@@ -72,10 +71,6 @@ function addBuyer(){
         if(activities[i] === ""){
             document.forms["form"]["activity" + (i+1)].focus();
             document.getElementById("errorBox").innerHTML = "timeline field cannot be blank";
-            return false;
-        }else if(!regex.test(activities[i])){
-            document.forms["form"]["activity" + (i+1)].focus();
-            document.getElementById("errorBox").innerHTML = "timeline can only be numeric";
             return false;
         }
     }
