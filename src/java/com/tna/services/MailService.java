@@ -28,11 +28,16 @@ import javax.mail.internet.MimeMultipart;
  */
 public class MailService {
     
+    
+    private final String host = "smtp.gmail.com";
+    private final String user = "admin@jaza-soft.com";
+    private final String password = "dzingywhmirgexws";
+    
     public Boolean send(String to,String sub,String msg){
         
-        String host = "mail.laguna-clothing.com";
-        String user = "itsupport@laguna-clothing.com";
-        String password = "Rit123ab*";
+//        String host = "mail.laguna-clothing.com";
+//        String user = "itsupport@laguna-clothing.com";
+//        String password = "***S***@522";
 
         Boolean status = false;
         
@@ -71,11 +76,7 @@ public class MailService {
     }
     
     public Boolean sendServerLog(){
-        
-        String host = "mail.laguna-clothing.com";
-        String user = "itsupport@laguna-clothing.com";
-        String password = "Rit123ab*";
-        
+                
         String to = "zahid7292@gmail.com";
         String sub = "Server Log of TNA";
         String msg = "This is the Server Log File of Time and Action Calendar Web Application.";
@@ -144,7 +145,7 @@ public class MailService {
         String subject = "Password Reset";
         String message =    "\nYou accessed the Password Reset Service of Laguna-Clothing pvt ltd TNA Application\n"+
                             "Click on link below to Reset your Password\n\n";
-        String url = "http://192.168.1.111:8080/tna/forgot_password?link=" + link;
+        String url = "http://192.168.1.5:8080/tna/forgot_password?link=" + link;
         //String url = "http://zahidraza.in/tna/forgot_password?link=" + link;
         
         message += url;
@@ -156,7 +157,7 @@ public class MailService {
     }
     
     public Boolean userRegistrationMail(User user){
-        String link = "http://192.168.1.111:8080/tna/login.jsp";
+        String link = "http://192.168.1.5:8080/tna/login.jsp";
         //String link = "http://zahidraza.in/tna/login.jsp";
         String sub = "Registration to TNA Application";
         String msg = "\nYou are Successfully registred in TNA Web Application of Laguna-Clothing pvt ltd.\n" +
