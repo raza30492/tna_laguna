@@ -31,7 +31,7 @@ public class MailService {
     
     private final String host = "smtp.gmail.com";
     private final String user = "admin@jaza-soft.com";
-    private final String password = "dzingywhmirgexws";
+    private final String password = "arcutfrsuoduyivy";
     
     public Boolean send(String to,String sub,String msg){
         
